@@ -1,0 +1,46 @@
+diff --git a/vendor/magento/framework/Css/PreProcessor/Instruction/MagentoImport.php b/vendor/magento/framework/Css/PreProcessor/Instruction/MagentoImport.php
+--- a/vendor/magento/framework/Css/PreProcessor/Instruction/MagentoImport.php	(date 1613374030628)
++++ b/vendor/magento/framework/Css/PreProcessor/Instruction/MagentoImport.php	(date 1613374030628)
+@@ -56,6 +56,10 @@
+      * @var ThemeProviderInterface
+      */
+     private $themeProvider;
++    /**
++     * @var \Magento\Framework\Module\Manager
++     */
++    private $moduleManager;
+
+     /**
+      * @param DesignInterface $design
+@@ -69,13 +73,15 @@
+         CollectorInterface $fileSource,
+         ErrorHandlerInterface $errorHandler,
+         \Magento\Framework\View\Asset\Repository $assetRepo,
+-        \Magento\Framework\View\Design\Theme\ListInterface $themeList
++        \Magento\Framework\View\Design\Theme\ListInterface $themeList,
++        \Magento\Framework\Module\Manager $moduleManager
+     ) {
+         $this->design = $design;
+         $this->fileSource = $fileSource;
+         $this->errorHandler = $errorHandler;
+         $this->assetRepo = $assetRepo;
+         $this->themeList = $themeList;
++        $this->moduleManager = $moduleManager;
+     }
+
+     /**
+@@ -109,8 +115,12 @@
+             /** @var $importFile \Magento\Framework\View\File */
+             foreach ($importFiles as $importFile) {
+                 $referenceString = $isReference ? '(reference) ' : '';
+-                $importsContent .= $importFile->getModule()
+-                    ? "@import $referenceString'{$importFile->getModule()}::{$resolvedPath}';\n"
++                $moduleName = $importFile->getModule();
++                if (!$this->moduleManager->isEnabled($moduleName)) {
++                    continue;
++                }
++                $importsContent .= $moduleName
++                    ? "@import $referenceString'{$moduleName}::{$resolvedPath}';\n"
+                     : "@import $referenceString'{$matchedFileId}';\n";
+             }
+         } catch (\LogicException $e) {
