@@ -32,3 +32,7 @@ In the project's `composer.json` file add the following:
 In your terminal (project root) run `composer update`.
 
 In case you don't get a message that patch applied, run `rm -rf vendor/magento/framework` then `composer update`.
+
+### Compatibility
+
+This solution works Magento 2.3.0 and above. Shouldn't work starting 2.5.0 because of this [PR](https://github.com/magento/magento2/pull/31593).
