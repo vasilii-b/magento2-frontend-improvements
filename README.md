@@ -28,3 +28,7 @@ In the project's `composer.json` file add the following:
         }
     }
 ```
+
+In your terminal (project root) run `composer update`.
+
+In case you don't get a message that patch applied, run `rm -rf vendor/magento/framework` then `composer update`.
