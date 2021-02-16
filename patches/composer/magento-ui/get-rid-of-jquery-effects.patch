@@ -1,0 +1,12 @@
+diff --git a/vendor/magento/module-ui/view/frontend/web/js/view/messages.js b/vendor/magento/module-ui/view/frontend/web/js/view/messages.js
+--- a/vendor/magento/module-ui/view/frontend/web/js/view/messages.js	(date 1613478027332)
++++ b/vendor/magento/module-ui/view/frontend/web/js/view/messages.js	(date 1613478027332)
+@@ -11,7 +11,7 @@
+     'jquery',
+     'uiComponent',
+     '../model/messageList',
+-    'jquery-ui-modules/effect-blind'
++    // 'jquery-ui-modules/effect-blind'
+ ], function (ko, $, Component, globalMessages) {
+     'use strict';
+

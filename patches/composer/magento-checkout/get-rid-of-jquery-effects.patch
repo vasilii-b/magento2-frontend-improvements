@@ -1,0 +1,12 @@
+diff --git a/vendor/magento/module-checkout/view/frontend/web/js/sidebar.js b/vendor/magento/module-checkout/view/frontend/web/js/sidebar.js
+--- a/vendor/magento/module-checkout/view/frontend/web/js/sidebar.js	(date 1613477938812)
++++ b/vendor/magento/module-checkout/view/frontend/web/js/sidebar.js	(date 1613477938812)
+@@ -14,7 +14,7 @@
+     'mage/decorate',
+     'mage/collapsible',
+     'mage/cookies',
+-    'jquery-ui-modules/effect-fade'
++    // 'jquery-ui-modules/effect-fade'
+ ], function ($, authenticationPopup, customerData, alert, confirm, _) {
+     'use strict';
+
