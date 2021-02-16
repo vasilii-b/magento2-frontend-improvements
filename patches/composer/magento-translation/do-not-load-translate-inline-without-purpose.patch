@@ -1,0 +1,11 @@
+diff --git a/vendor/magento/module-translation/view/frontend/requirejs-config.js b/vendor/magento/module-translation/view/frontend/requirejs-config.js
+--- a/vendor/magento/module-translation/view/frontend/requirejs-config.js	(date 1613471517834)
++++ b/vendor/magento/module-translation/view/frontend/requirejs-config.js	(date 1613471517834)
+@@ -11,7 +11,4 @@
+             'Magento_Translation/add-class': 'Magento_Translation/js/add-class'
+         }
+     },
+-    deps: [
+-        'mage/translate-inline'
+-    ]
+ };
