@@ -36,7 +36,7 @@ diff --git a/vendor/magento/framework/Css/PreProcessor/Instruction/MagentoImport
 -                $importsContent .= $importFile->getModule()
 -                    ? "@import $referenceString'{$importFile->getModule()}::{$resolvedPath}';\n"
 +                $moduleName = $importFile->getModule();
-+                if (!$this->moduleManager->isEnabled($moduleName)) {
++                if ($moduleName && !$this->moduleManager->isEnabled($moduleName)) {
 +                    continue;
 +                }
 +                $importsContent .= $moduleName
